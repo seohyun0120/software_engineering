@@ -21,9 +21,30 @@ Github을 사용한다.
 6. git push
 
 ## To Do: Issue Tracker
-1. github Issues 버튼을 누른다.
-2. 오른쪽에 New Issue 버튼을 누른다.
-3. 해야할 일의 요약을 title에 적고, 자세한 사항은 아래 write칸에 작성한다.
-4. Assignees에 Todo 담당자를 할당한다.
-5. Submit new Issue 버튼을 누른다.
-6. Issue가 해결되면 Close issue 버튼을 누른다.
+① Create/open a new issue
+② Read/view an issue
+③ Update an issue (e.g., assignee, priority)
+④ Close/resolve an issue
+⑤ Notify issues to project members
+⑥ List all issues
+
+1. Create/open a new issue
+- github Issues 버튼을 누른다.
+- 오른쪽에 New Issue 버튼을 누른다.
+- 해야할 일의 요약을 title에 적고, 자세한 사항은 아래 write칸에 작성한다.
+- Submit new Issue 버튼을 누른다.
+
+2. Read/view an issue
+- 쌓여있는 이슈들을 확인한다.
+
+3. Update an issue
+- Assignees에 issue 담당자를 할당한다.
+
+4. Close/resolve an issue
+- Issue가 해결되면 Close issue 버튼을 누른다.
+
+5. Notify issues to project members
+- Assign하게 될 경우 연동된 이메일 계정으로 안내 메일 전송.
+
+6. List all issues
+- Open된 issue, Close issue 캡처(?)
