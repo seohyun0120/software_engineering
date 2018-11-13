@@ -21,13 +21,6 @@ Github을 사용한다.
 6. git push
 
 ## To Do: Issue Tracker
-① Create/open a new issue
-② Read/view an issue
-③ Update an issue (e.g., assignee, priority)
-④ Close/resolve an issue
-⑤ Notify issues to project members
-⑥ List all issues
-
 1. Create/open a new issue
 - github Issues 버튼을 누른다.
 - 오른쪽에 New Issue 버튼을 누른다.
