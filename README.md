@@ -15,6 +15,16 @@ Software Enginnering 과.제
 
 
 
+## System Architecture
+
+MainMenu.java
+
+ 	1. ContactMain.java
+ 	2. TodoMain.java
+ 	3. AppointmentMain.java
+
+
+
 ## To Do: Version Control System
 Github을 사용한다.
 1. git commit
