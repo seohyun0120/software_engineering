@@ -4,12 +4,12 @@ Software Enginnering 과.제
 ## branch
 - master
 - dev 
-- dev - 각자 이름
+- 각자 이름이 들어간 브랜치 명 ex) seohyun, dev-bohyun, dev-Huikyung
 
 
 
 ## 작업 원칙
-1. dev-본인이름에서 작업한다.
+1. 자신의 branch에서 local하게 작업한다. 
 2. 자신의 branch에서 잘 작동하면 dev로 merge를 한다.
 3. dev에서 test가 완료되면 master로 push한다.
 
@@ -44,6 +44,8 @@ Github을 사용한다.
 - 해야할 일의 요약을 title에 적고, 자세한 사항은 아래 write칸에 작성한다.
 - Submit new Issue 버튼을 누른다.
 - 
+
+
 
 #### Read/view an issue
 
