@@ -88,8 +88,14 @@ public class ContactMain {
 		JButton btnInsert = new JButton("연락처 등록"); 
 		btnInsert.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) {
-				insert();
-				reset();
+				int result = JOptionPane.showConfirmDialog(null, "연락처를 등록하시겠습니까?", "Confirm", JOptionPane.YES_NO_OPTION);
+				if (result == JOptionPane.YES_OPTION) {
+					insert();
+				} else if (result == JOptionPane.YES_OPTION) {
+					reset();	
+				} else {
+					reset();	
+				}
 			}
 		});
 		btnInsert.setFont(new Font("굴림", Font.BOLD, 12));
@@ -99,7 +105,7 @@ public class ContactMain {
 		JButton btnSelect = new JButton("연락처 보기"); 
 		btnSelect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				selectAll(); 
+				selectAll();
 				reset();
 			}
 		});
@@ -161,15 +167,16 @@ public class ContactMain {
 		String phone = textPhone.getText(); 
 		String email = textEmail.getText(); 
 		
-		ContactInfo contact = new ContactInfo(name, phone, email);
-		int result = info.insert(contact); 
-		
-		if (result > 0) {
+		if (name.length() > 0 && phone.length() > 0 && email.length() > 0) {
+			ContactInfo contact = new ContactInfo(name, phone, email);
+			int result = info.insert(contact);
 			System.out.println("연락처 등록 성공");
+			textArea.setText(contact.toString());
 		} else {
+			int result = 0;
 			System.out.println("연락처 등록 실패");
+			textArea.setText("빈칸은 등록할 수 없습니다.");
 		}
-		textArea.setText(contact.toString());
 	}
 
 	private void selectAll() {
@@ -177,7 +184,7 @@ public class ContactMain {
 		StringBuffer buffer = new StringBuffer();
 		for (int i = 0; i < list.size(); i++) {
 			buffer.append("[" + i + "] ").append(list.get(i).toString()).append("\n");
-		} // end for
+		}
 		textArea.setText(buffer.toString());
 	}
 
