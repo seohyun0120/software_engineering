@@ -1,3 +1,7 @@
 .metadata
 Main/bin
 RemoteSystemsTempFiles
+Main/.settings
+Main/.classpath
+Main/.project
+.recommenders
