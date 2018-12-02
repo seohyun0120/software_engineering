@@ -91,6 +91,7 @@ public class ContactMain {
 				int result = JOptionPane.showConfirmDialog(null, "연락처를 등록하시겠습니까?", "Confirm", JOptionPane.YES_NO_OPTION);
 				if (result == JOptionPane.YES_OPTION) {
 					insert();
+					reset();
 				} else if (result == JOptionPane.YES_OPTION) {
 					reset();	
 				} else {
@@ -127,8 +128,15 @@ public class ContactMain {
 		JButton btnUpdate = new JButton("연락처 수정"); 
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				update(); 
-				reset();
+				int result = JOptionPane.showConfirmDialog(null, "연락처를 수정하시겠습니까?", "Confirm", JOptionPane.YES_NO_OPTION);
+				if (result == JOptionPane.YES_OPTION) {
+					update();
+					reset();
+				} else if (result == JOptionPane.YES_OPTION) {
+					reset();	
+				} else {
+					reset();	
+				}
 			}
 		});
 		btnUpdate.setFont(new Font("굴림", Font.BOLD, 12));
@@ -138,8 +146,15 @@ public class ContactMain {
 		JButton btnDelete = new JButton("연락처 삭제"); 
 		btnDelete.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) {
-				delete();
-				reset();
+				int result = JOptionPane.showConfirmDialog(null, "연락처를 삭제하시겠습니까?", "Confirm", JOptionPane.YES_NO_OPTION);
+				if (result == JOptionPane.YES_OPTION) {
+					delete();
+					reset();
+				} else if (result == JOptionPane.YES_OPTION) {
+					reset();	
+				} else {
+					reset();	
+				}
 			}
 		});
 
@@ -195,6 +210,7 @@ public class ContactMain {
 			textName.setText(list.getName());
 			textPhone.setText(list.getPhone());
 			textEmail.setText(list.getEmail());
+			textArea.setText(list.toString());
 		} catch (NumberFormatException e) {
 			textArea.setText("인덱스 칸에 검색할 정보의 index를 입력하세요.");
 		} catch (NullPointerException e) {
@@ -208,12 +224,18 @@ public class ContactMain {
 			String name = textName.getText();
 			String phone = textPhone.getText();
 			String email = textEmail.getText();
-			ContactInfo contact = new ContactInfo(name, phone, email);
-			int result = info.update(index, contact);
-			if (result == 1) {
-				textArea.setText(index + "번 연락처 수정 성공");
+			
+			if (name.length() > 0 && phone.length() > 0 && email.length() > 0) {
+				ContactInfo contact = new ContactInfo(name, phone, email);
+				int result = info.update(index, contact);
+				if (result == 1) {
+					textArea.setText(index + "번 연락처 수정 성공");
+				} else {
+					textArea.setText(index + "번 연락처 수정 실패");
+				}
 			} else {
-				textArea.setText(index + "번 연락처 수정 실패");
+				textArea.setText("빈칸은 등록할 수 없습니다.");
+				reset();
 			}
 		} catch (NumberFormatException e) {
 			textArea.setText("인덱스 칸에 수정할 정보의 index를 입력하세요.");
@@ -227,10 +249,10 @@ public class ContactMain {
 			if (result > 0) {
 				textArea.setText(index + "번 연락처 삭제 성공");
 			} else {
-				textArea.setText(index + "번 연락처 삭제 실패");
+				textArea.setText(index + "번 연락처 삭제 실패\n정보가 존재하지 않습니다.");
 			}
 		} catch (NumberFormatException e) {
-			textArea.setText("인덱스 칸에 삭제 정보의 index를 입력하세요.");
+			textArea.setText("인덱스 칸에 삭제할 정보의 index를 입력하세요.");
 		}
 	}
 }
