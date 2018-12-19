@@ -43,6 +43,7 @@ Github을 사용한다.
 - 오른쪽에 New Issue 버튼을 누른다.
 - 해야할 일의 요약을 title에 적고, 자세한 사항은 아래 write칸에 작성한다.
 - Submit new Issue 버튼을 누른다.
+- 
 
 
 
