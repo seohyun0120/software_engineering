@@ -43,7 +43,6 @@ public class TestContactInfoManager {
 	
 	
 	@Test
-	@Disabled()
 	@DisplayName("연락처 파일에 테스트 계정 정보 수정")
 	public void test2_updateInfoFromList() {
 		ContactInfo contact = new ContactInfo("test2", "test2Email", "test2_update@test.com");
