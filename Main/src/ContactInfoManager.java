@@ -1,14 +1,14 @@
-import java.awt.*;
 import java.io.*;
 import java.util.*;
-import java.io.Serializable;
 
 public class ContactInfoManager implements ContactMenu {
 	private static ContactInfoManager instance = null;
+	private static final String DATA_DIR = "data";
+	private static final String DATA_FILE = "contact.data";
 
-	private ContactInfoManager() {
-		initDataDir();
-		initDataFile();
+	public ContactInfoManager() {
+		initDataDir(DATA_DIR);
+		initDataFile(DATA_DIR, DATA_FILE);
 	}
 
 	public static ContactInfoManager getInstance() {
@@ -20,14 +20,11 @@ public class ContactInfoManager implements ContactMenu {
 
 	public ArrayList<ContactInfo> list;
 
-	private static final String DATA_DIR = "data";
-	private static final String DATA_FILE = "contact.data";
+	public File dataDir;
+	public File dataFile;
 
-	private File dataDir;
-	private File dataFile;
-
-	private void initDataDir() {
-		dataDir = new File(DATA_DIR);
+	public int initDataDir(String dir) {
+		dataDir = new File(dir);
 		System.out.println("folder path: " + dataDir.getPath());
 		System.out.println("folder absolute path: " + dataDir.getAbsolutePath());
 
@@ -37,13 +34,15 @@ public class ContactInfoManager implements ContactMenu {
 			} else {
 				System.out.println("폴더 생성 fail");
 			}
+			return 1;
 		} else { 
 			System.out.println("Folder Already Exists");
+			return 0;
 		}
 	}
 
-	private void initDataFile() {
-		String filePath = DATA_DIR + File.separator + DATA_FILE;
+	public int initDataFile(String dir, String file) {
+		String filePath = dir + File.separator + file;
 		dataFile = new File(filePath);
 		System.out.println("file path : " + dataFile.getPath());
 		System.out.println("file absolute path: " + dataFile.getAbsolutePath());
@@ -51,13 +50,15 @@ public class ContactInfoManager implements ContactMenu {
 		if (!dataFile.exists()) { 
 			System.out.println("New Data File added");
 			list = new ArrayList<>();
+			return 1;
 		} else {
 			System.out.println("Already exists");
 			readDataFromFile();
+			return 0;
 		}
 	}
 
-	private void readDataFromFile() {
+	public void readDataFromFile() {
 		InputStream in = null;
 		BufferedInputStream bin = null;
 		ObjectInputStream oin = null;
@@ -66,7 +67,7 @@ public class ContactInfoManager implements ContactMenu {
 			bin = new BufferedInputStream(in);
 			oin = new ObjectInputStream(bin);
 			list = (ArrayList<ContactInfo>) oin.readObject();
-			System.out.println("Print File success");
+			System.out.println(list);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -78,7 +79,7 @@ public class ContactInfoManager implements ContactMenu {
 		}
 	}
 
-	private void writeDataToFile() {
+	public void writeDataToFile() {
 		OutputStream out = null;
 		BufferedOutputStream bout = null;
 		ObjectOutputStream oout = null;
