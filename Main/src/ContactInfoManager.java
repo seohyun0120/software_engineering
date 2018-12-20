@@ -7,7 +7,7 @@ public class ContactInfoManager implements ContactMenu {
 	private static final String DATA_FILE = "contact.data";
 
 	public ContactInfoManager() {
-		initDataDir();
+		initDataDir(DATA_DIR);
 		initDataFile(DATA_DIR, DATA_FILE);
 	}
 
@@ -23,8 +23,8 @@ public class ContactInfoManager implements ContactMenu {
 	public File dataDir;
 	public File dataFile;
 
-	public void initDataDir() {
-		dataDir = new File(DATA_DIR);
+	public int initDataDir(String dir) {
+		dataDir = new File(dir);
 		System.out.println("folder path: " + dataDir.getPath());
 		System.out.println("folder absolute path: " + dataDir.getAbsolutePath());
 
@@ -34,8 +34,10 @@ public class ContactInfoManager implements ContactMenu {
 			} else {
 				System.out.println("폴더 생성 fail");
 			}
+			return 1;
 		} else { 
 			System.out.println("Folder Already Exists");
+			return 0;
 		}
 	}
 
