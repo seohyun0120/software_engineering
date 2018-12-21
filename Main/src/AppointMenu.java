@@ -4,16 +4,17 @@ import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.border.*;
 
-public class AppointMain {
-	public static AppointMenu info;
+public class AppointMenu {
+	public static AppointInterface info;
 	public JFrame frame;
 	public JTextField textIndex;
 	public JTextField textName;
 	public JTextField textDate;
 	public JTextField textTime;
+	public JTextField textLocation;
 	public JTextArea textArea;
 	
-	public AppointMain() {
+	public AppointMenu() {
 		info = AppointManager.getInstance();
 		initialize();
 	}
@@ -51,8 +52,15 @@ public class AppointMain {
 		lName.setHorizontalAlignment(SwingConstants.CENTER);
 		lName.setFont(new Font("굴림", Font.PLAIN, 14));
 		lName.setBorder(new CompoundBorder(new EtchedBorder(EtchedBorder.RAISED, new Color(255, 200, 0), new Color(255, 255, 0)), null));
-		lName.setBounds(12, 132, 160, 40);
+		lName.setBounds(12, 132, 80, 40);
 		frame.getContentPane().add(lName);
+		
+		JLabel lTime = new JLabel("시간(HH:MM)");
+		lTime.setHorizontalAlignment(SwingConstants.CENTER);
+		lTime.setFont(new Font("굴림", Font.PLAIN, 14));
+		lTime.setBorder(new CompoundBorder(new EtchedBorder(EtchedBorder.RAISED, new Color(255, 200, 0), new Color(255, 255, 0)), null));
+		lTime.setBounds(212, 132, 120, 40);
+		frame.getContentPane().add(lTime);
 		
 		JLabel lPhone = new JLabel("날짜(YYYY-MM-DD)"); 
 		lPhone.setHorizontalAlignment(SwingConstants.CENTER);
@@ -61,12 +69,12 @@ public class AppointMain {
 		lPhone.setBounds(12, 182, 160, 40);
 		frame.getContentPane().add(lPhone);
 		
-		JLabel lEmail = new JLabel("시간(HH:MM)");
-		lEmail.setHorizontalAlignment(SwingConstants.CENTER);
-		lEmail.setFont(new Font("굴림", Font.PLAIN, 14));
-		lEmail.setBorder(new CompoundBorder(new EtchedBorder(EtchedBorder.RAISED, new Color(255, 200, 0), new Color(255, 255, 0)), null));
-		lEmail.setBounds(12, 232, 160, 40);
-		frame.getContentPane().add(lEmail);
+		JLabel lLocation = new JLabel("위치");
+		lLocation.setHorizontalAlignment(SwingConstants.CENTER);
+		lLocation.setFont(new Font("굴림", Font.PLAIN, 14));
+		lLocation.setBorder(new CompoundBorder(new EtchedBorder(EtchedBorder.RAISED, new Color(255, 200, 0), new Color(255, 255, 0)), null));
+		lLocation.setBounds(12, 232, 160, 40);
+		frame.getContentPane().add(lLocation);
 		
 		textIndex = new JTextField();
 		textIndex.setBounds(197, 82, 285, 40);
@@ -74,17 +82,21 @@ public class AppointMain {
 		textIndex.setColumns(10);
 		textName = new JTextField();
 		textName.setColumns(10);
-		textName.setBounds(197, 134, 285, 40);
+		textName.setBounds(100, 134, 100, 40);
 		frame.getContentPane().add(textName);
+		textTime = new JTextField(); 
+		textTime.setColumns(10);
+		textTime.setBounds(350, 134, 100, 40);
+		frame.getContentPane().add(textTime);
 		textDate = new JTextField(); 
 		textDate.setColumns(10);
 		textDate.setBounds(197, 184, 285, 40);
 		frame.getContentPane().add(textDate);
-		textTime = new JTextField(); 
-		textTime.setColumns(10);
-		textTime.setBounds(197, 234, 285, 40);
-		frame.getContentPane().add(textTime);
-
+		textLocation = new JTextField(); 
+		textLocation.setColumns(10);
+		textLocation.setBounds(197, 234, 285, 40);
+		frame.getContentPane().add(textLocation);
+		
 		JButton btnInsert = new JButton("등록"); 
 		btnInsert.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) {
@@ -153,6 +165,7 @@ public class AppointMain {
 		textName.setText("");
 		textDate.setText("");
 		textTime.setText("");
+		textLocation.setText("");
 	}
 	
 
@@ -160,36 +173,71 @@ public class AppointMain {
 		String name = textName.getText(); 
 		String date = textDate.getText(); 
 		String time = textTime.getText(); 
+		String location = textLocation.getText();
 		
-		AppointInfo contact = new AppointInfo(name, date,time);
-		int result = info.insert(contact); 
+		AppointInfo appoint = new AppointInfo(name,date,time,location);
+	
+		int result = info.insert(appoint); 
 		
 		if (result > 0) {
 			System.out.println("미팅 등록 성공");
+			textArea.setText(appoint.toString());
 		} else {
-			System.out.println("미팅 등록 실패");
+			textArea.setText("미팅 등록 실패");
 		}
-		textArea.setText(contact.toString());
+		
 	}
 
 	private void selectAll() {
 		ArrayList<AppointInfo> list = info.select();
 		StringBuffer buffer = new StringBuffer();
 		for (int i = 0; i < list.size(); i++) {
-			buffer.append("[" + i + "] ").append(list.get(i).toString()).append("\n");
-		} // end for
+			
+			buffer.append("[" + i + "] ").append(list.get(i).toString());
+		} 
 		textArea.setText(buffer.toString());
 	}
-
+	
+//******************************TODO 수정********************************************* date검색 가능
 	private void select() {
 		try {
-			int index = Integer.parseInt(textIndex.getText());
-			AppointInfo list = info.select(index);
-			textName.setText(list.getName());
-			textDate.setText(list.getDate());
-			textTime.setText(list.getTime());
+			String searchDate = textDate.getText();
+			System.out.println("search_date :: "+ searchDate);
+			if(searchDate.trim().length()>0) {
+				StringBuffer buffer = new StringBuffer();
+				ArrayList<AppointInfo> list = info.select(searchDate);
+				ArrayList<AppointInfo> listALL = info.select();
+				System.out.println("listALL size: "+listALL.size());
+				
+				for (int i = 0; i < list.size(); i++) {
+					for(int j=0; j<listALL.size(); j++) {
+						if(list.get(i).getDate()==listALL.get(j).getDate())
+						{	
+							buffer.append("[" + j + "] ").append(list.get(i).toString());
+							break;
+						}
+					} 
+				}
+				
+				textArea.setText(buffer.toString());
+			}
+			else{
+				int index = Integer.parseInt(textIndex.getText());
+				AppointInfo list = info.select(index);
+				StringBuffer buffer = new StringBuffer();
+				ArrayList<AppointInfo> listALL = info.select();
+				for(int j=0; j<listALL.size(); j++) {
+					if(list.getName().equals(listALL.get(j).getName()))
+					{
+						buffer.append("[" + j + "] ").append(list.toString());
+					}
+				}
+			
+				textArea.setText(buffer.toString());
+			}
+		
 		} catch (NumberFormatException e) {
-			textArea.setText("인덱스 칸에 검색할 정보의 index를 입력하세요.");
+			textArea.setText("인덱스 칸이나 날짜칸에 검색할 정보의 index를 입력하세요.");
 		} catch (NullPointerException e) {
 			textArea.setText("해당 정보가 없습니다.");
 		}
@@ -201,12 +249,16 @@ public class AppointMain {
 			String name = textName.getText();
 			String date = textDate.getText();
 			String time = textTime.getText();
-			AppointInfo contact = new AppointInfo(name, date, time);
+			String location = textLocation.getText();
+			AppointInfo contact = new AppointInfo(name, date, time, location);
+			
 			int result = info.update(index, contact);
 			if (result == 1) {
-				textArea.setText(index + "번 미팅 수정 성공");
-			} else {
-				textArea.setText(index + "번미팅 수정 실패");
+				textArea.setText(index + "번 미팅 수정에 성공하였습니다");
+			} else if(result == -1){
+				textArea.setText(index + "번 미팅 수정에 실패하였습니다\n모든 빈칸을 채워주세요.");
+			}else {
+				textArea.setText(index + "번 미팅 수정에 실패하였습니다");
 			}
 		} catch (NumberFormatException e) {
 			textArea.setText("인덱스 칸에 수정할 정보의 index를 입력하세요.");
@@ -218,12 +270,34 @@ public class AppointMain {
 			int index = Integer.parseInt(textIndex.getText());
 			int result = info.delete(index);
 			if (result > 0) {
-				textArea.setText(index + "번 미팅 삭제 성공");
+				textArea.setText(index + "번 미팅 삭제에 성공하였습니다");
 			} else {
-				textArea.setText(index + "번 미팅 삭제 실패");
+				textArea.setText(index + "번 미팅 삭제에 실패하였습니다");
 			}
 		} catch (NumberFormatException e) {
 			textArea.setText("인덱스 칸에 삭제 정보의 index를 입력하세요.");
 		}
 	}
+	
+	
+
+	private boolean testFlag = false;
+	public void setTesting() {this.testFlag = true;}
+	private boolean isTesting() {return this.testFlag;}
+	
+	public void removeAll() {
+		if(!this.isTesting()) return;
+		
+		ArrayList<AppointInfo> list = info.select();
+		for (int i = 0; i < list.size(); i++) {
+			int result = info.delete(i);
+			if (result > 0) {
+				System.out.println(i + "번 미팅 삭제 성공");
+			} else {
+				System.out.println(i + "번 미팅 삭제 실패");
+			}
+		} 
+	}
+	
+
 }
