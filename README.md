@@ -2,23 +2,24 @@
 Software Enginnering 2018학년도 2학기 과제
 
 
+### 과제 3 
 
-### Compile
+## Compile
 
-1. master branch의 내용 clone
+1. dev branch의 내용 clone
 2. Main.java 실행
 3. Contact, Todo, Appointment 순서대로 정보 입력, 수정, 보기, 삭제 해보기
 
 
 
-### Test
+## Test
 
 1. Contact: TestContactInfo.java, TestContactManager.java 실행
 2. Appointment: TestAppointClass.java 실행
 
 
 
-### Things to know
+## Things to know
 
 #### Encoding Problem
 
@@ -28,7 +29,14 @@ Software Enginnering 2018학년도 2학기 과제
 
 -  유저스토리에서 Appointment 관리 중, 모든 알림 창은 TextArea에 띄워주는 것으로 구현하였습니다.
 
-### 과제 진행 과정
+#### Branch
+- 과제3에 대한 작업은 dev branch에 최종본을 업로드 하였습니다.
+
+
+
+--- 
+
+### 과제 2
 
 ## branch
 - master
@@ -100,4 +108,4 @@ Github을 사용한다.
 
 #### List all issues
 
-- Open된 issue, Close issue 캡처(?)
+- Open된 issue, Close issue 캡
