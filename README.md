@@ -3,7 +3,7 @@ Software Enginnering 2018학년도 2학기 과제
 
 
 
-### Compile
+## Compile
 
 1. master branch의 내용 clone
 2. Main.java 실행
@@ -11,14 +11,14 @@ Software Enginnering 2018학년도 2학기 과제
 
 
 
-### Test
+## Test
 
 1. Contact: TestContactInfo.java, TestContactManager.java 실행
 2. Appointment: TestAppointClass.java 실행
 
 
 
-### Things to know
+## Things to know
 
 #### Encoding Problem
 
@@ -28,7 +28,10 @@ Software Enginnering 2018학년도 2학기 과제
 
 -  유저스토리에서 Appointment 관리 중, 모든 알림 창은 TextArea에 띄워주는 것으로 구현하였습니다.
 
-### 과제 진행 과정
+
+
+
+## 과제 진행 과정
 
 ## branch
 - master
