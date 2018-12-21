@@ -2,7 +2,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.*;
 import java.util.*;
 
-public class TestContactInfoManager {
+public class TestContactManager {
 	public ArrayList<ContactInfo> list;
 	
 	public static final String DATA_DIR = "data";
@@ -13,7 +13,7 @@ public class TestContactInfoManager {
 	String email = "sarah@email.com";
 	
 	ContactInfo info = new ContactInfo(name, phone, email);
-	ContactInfoManager manager = new ContactInfoManager();
+	ContactManager manager = new ContactManager();
 	
 	int test_0_index = 0;
 	int test_1_index = 1;
