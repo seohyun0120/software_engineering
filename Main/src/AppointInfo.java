@@ -1,16 +1,23 @@
 import java.io.Serializable;
 
 public class AppointInfo implements Serializable {
-	private static final long serialVersionUID = 1L; // Serializable error 諛⑹�
+	private static final long serialVersionUID = 1L; // Serializable error 
+
 	private String name;
 	private String date;
 	private String time;
+	private String location;
+
+	
 	
 	public AppointInfo() {}
-	public AppointInfo(String name, String date, String time) {
+	public AppointInfo(String name, String date, String time, String location) {
+	
 		this.name = name;
 		this.date = date;
 		this.time = time;
+		this.location = location;
+		
 	}
 	
 	public String getName() {
@@ -33,12 +40,20 @@ public class AppointInfo implements Serializable {
 		return time;
 	}
 	
-	public void setEmail(String time) {
+	public void setTime(String time) {
 		this.time = time;
 	}
 	
+	public String getLocation() {
+		return location;
+	}
+	
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	
 	public String toString() {
-		String str = "이름: " + name + "  |" + " 날자: " + date + "  |" + " 시간: " + time; 
+		String str = "NAME: " + name + "  " + "DATE: " + date + "  " + "TIME: " + time+"  "+"LOCATION: "+location+"\n"; 
 		return str;
 	}
 }
