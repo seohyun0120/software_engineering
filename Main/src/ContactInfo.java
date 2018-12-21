@@ -1,7 +1,7 @@
 import java.io.Serializable;
 
 public class ContactInfo implements Serializable {
-	private static final long serialVersionUID = 1L; // Serializable error 방지
+	private static final long serialVersionUID = 1L;
 	private String name;
 	private String phone;
 	private String email;
@@ -38,7 +38,7 @@ public class ContactInfo implements Serializable {
 	}
 	
 	public String toString() {
-		String str = "이름: " + name + "  |" + " 연락처: " + phone + "  |" + " 이메일: " + email; 
+		String str = "NAME: " + name + "  |" + " PHONE: " + phone + "  |" + " EMAIL: " + email; 
 		return str;
 	}
 }

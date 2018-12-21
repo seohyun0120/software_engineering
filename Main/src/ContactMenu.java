@@ -23,7 +23,7 @@ public class ContactMenu {
 		frame.setBounds(100, 100, 510, 639);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lTitle = new JLabel("1. 연락처 관리");
+		JLabel lTitle = new JLabel("1. Contact");
 		lTitle.setBorder(new LineBorder(Color.BLUE, 2, true));
 		lTitle.setFont(new Font("굴림", Font.BOLD, 21));
 		lTitle.setHorizontalAlignment(SwingConstants.CENTER);
@@ -40,28 +40,28 @@ public class ContactMenu {
 		btnMainMenu.setBounds(400, 10, 80, 60);
 		frame.getContentPane().add(btnMainMenu);
 		
-		JLabel lIndex = new JLabel("인덱스"); 
+		JLabel lIndex = new JLabel("INDEX"); 
 		lIndex.setHorizontalAlignment(SwingConstants.CENTER);
 		lIndex.setBorder(new CompoundBorder(new EtchedBorder(EtchedBorder.RAISED, new Color(255, 200, 0), new Color(255, 255, 0)), null));
 		lIndex.setFont(new Font("굴림", Font.PLAIN, 14));
 		lIndex.setBounds(12, 80, 160, 40);
 		frame.getContentPane().add(lIndex);
 		
-		JLabel lName = new JLabel("이름"); 
+		JLabel lName = new JLabel("NAME"); 
 		lName.setHorizontalAlignment(SwingConstants.CENTER);
 		lName.setFont(new Font("굴림", Font.PLAIN, 14));
 		lName.setBorder(new CompoundBorder(new EtchedBorder(EtchedBorder.RAISED, new Color(255, 200, 0), new Color(255, 255, 0)), null));
 		lName.setBounds(12, 132, 160, 40);
 		frame.getContentPane().add(lName);
 		
-		JLabel lPhone = new JLabel("전화번호"); 
+		JLabel lPhone = new JLabel("PHONE"); 
 		lPhone.setHorizontalAlignment(SwingConstants.CENTER);
 		lPhone.setFont(new Font("굴림", Font.PLAIN, 14));
 		lPhone.setBorder(new CompoundBorder(new EtchedBorder(EtchedBorder.RAISED, new Color(255, 200, 0), new Color(255, 255, 0)), null));
 		lPhone.setBounds(12, 182, 160, 40);
 		frame.getContentPane().add(lPhone);
 		
-		JLabel lEmail = new JLabel("이메일");
+		JLabel lEmail = new JLabel("EMAIL");
 		lEmail.setHorizontalAlignment(SwingConstants.CENTER);
 		lEmail.setFont(new Font("굴림", Font.PLAIN, 14));
 		lEmail.setBorder(new CompoundBorder(new EtchedBorder(EtchedBorder.RAISED, new Color(255, 200, 0), new Color(255, 255, 0)), null));
@@ -85,10 +85,10 @@ public class ContactMenu {
 		textEmail.setBounds(197, 234, 285, 40);
 		frame.getContentPane().add(textEmail);
 
-		JButton btnInsert = new JButton("연락처 등록"); 
+		JButton btnInsert = new JButton("CREATE"); 
 		btnInsert.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) {
-				int result = JOptionPane.showConfirmDialog(null, "연락처를 등록하시겠습니까?", "Confirm", JOptionPane.YES_NO_OPTION);
+				int result = JOptionPane.showConfirmDialog(null, "Will you create Contact?", "Confirm", JOptionPane.YES_NO_OPTION);
 				if (result == JOptionPane.YES_OPTION) {
 					insert();
 					reset();
@@ -103,7 +103,7 @@ public class ContactMenu {
 		btnInsert.setBounds(20, 282, 90, 40);
 		frame.getContentPane().add(btnInsert);
 	
-		JButton btnSelect = new JButton("연락처 보기"); 
+		JButton btnSelect = new JButton("VIEW"); 
 		btnSelect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				selectAll();
@@ -114,7 +114,7 @@ public class ContactMenu {
 		btnSelect.setBounds(114, 282, 90, 40);
 		frame.getContentPane().add(btnSelect);
 		
-		JButton btnIndexSelect = new JButton("상세검색"); 
+		JButton btnIndexSelect = new JButton("DETAIL"); 
 		btnIndexSelect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				select(); 
@@ -125,10 +125,10 @@ public class ContactMenu {
 		btnIndexSelect.setBounds(206, 282, 90, 40);
 		frame.getContentPane().add(btnIndexSelect);
 		
-		JButton btnUpdate = new JButton("연락처 수정"); 
+		JButton btnUpdate = new JButton("UPDATE"); 
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int result = JOptionPane.showConfirmDialog(null, "연락처를 수정하시겠습니까?", "Confirm", JOptionPane.YES_NO_OPTION);
+				int result = JOptionPane.showConfirmDialog(null, "Will you update Contact?", "Confirm", JOptionPane.YES_NO_OPTION);
 				if (result == JOptionPane.YES_OPTION) {
 					update();
 					reset();
@@ -143,10 +143,10 @@ public class ContactMenu {
 		btnUpdate.setBounds(298, 282, 90, 40);
 		frame.getContentPane().add(btnUpdate);
 
-		JButton btnDelete = new JButton("연락처 삭제"); 
+		JButton btnDelete = new JButton("DELETE"); 
 		btnDelete.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) {
-				int result = JOptionPane.showConfirmDialog(null, "연락처를 삭제하시겠습니까?", "Confirm", JOptionPane.YES_NO_OPTION);
+				int result = JOptionPane.showConfirmDialog(null, "Will you delete Contact?", "Confirm", JOptionPane.YES_NO_OPTION);
 				if (result == JOptionPane.YES_OPTION) {
 					delete();
 					reset();
@@ -185,12 +185,12 @@ public class ContactMenu {
 		if (name.length() > 0 && phone.length() > 0 && email.length() > 0) {
 			ContactInfo contact = new ContactInfo(name, phone, email);
 			int result = info.insert(contact);
-			System.out.println("연락처 등록 성공");
+			System.out.println("Contact Create Success");
 			textArea.setText(contact.toString());
 		} else {
 			int result = 0;
-			System.out.println("연락처 등록 실패");
-			textArea.setText("빈칸은 등록할 수 없습니다.");
+			System.out.println("Contact Create Fail");
+			textArea.setText("Cannot Insert NULL into Data");
 		}
 	}
 
@@ -212,9 +212,9 @@ public class ContactMenu {
 			textEmail.setText(list.getEmail());
 			textArea.setText(list.toString());
 		} catch (NumberFormatException e) {
-			textArea.setText("인덱스 칸에 검색할 정보의 index를 입력하세요.");
+			textArea.setText("Please input the index or date you want to search");
 		} catch (NullPointerException e) {
-			textArea.setText("해당 정보가 없습니다.");
+			textArea.setText("There is no data you want to search");
 		}
 	}
 
@@ -229,16 +229,16 @@ public class ContactMenu {
 				ContactInfo contact = new ContactInfo(name, phone, email);
 				int result = info.update(index, contact);
 				if (result == 1) {
-					textArea.setText(index + "번 연락처 수정 성공");
+					textArea.setText("No. " +index + " contact is updated.");
 				} else {
-					textArea.setText(index + "번 연락처 수정 실패");
+					textArea.setText("No. " +index + " contact cannot be updated.");
 				}
 			} else {
-				textArea.setText("빈칸은 등록할 수 없습니다.");
+				textArea.setText("Cannot Insert NULL into Data");
 				reset();
 			}
 		} catch (NumberFormatException e) {
-			textArea.setText("인덱스 칸에 수정할 정보의 index를 입력하세요.");
+			textArea.setText("Please input the index or date you want to search");
 		}
 	}
 
@@ -247,12 +247,12 @@ public class ContactMenu {
 			int index = Integer.parseInt(textIndex.getText());
 			int result = info.delete(index);
 			if (result > 0) {
-				textArea.setText(index + "번 연락처 삭제 성공");
+				textArea.setText("No. " +index + " contact is deleted.");
 			} else {
-				textArea.setText(index + "번 연락처 삭제 실패\n정보가 존재하지 않습니다.");
+				textArea.setText("No. " +index + " does not exists. Faile to delete.");
 			}
 		} catch (NumberFormatException e) {
-			textArea.setText("인덱스 칸에 삭제할 정보의 index를 입력하세요.");
+			textArea.setText("Please input the index or date you want to search");
 		}
 	}
 }

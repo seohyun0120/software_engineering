@@ -11,7 +11,7 @@ public class TestContactInfo {
 	ContactInfo info = new ContactInfo(name, phone, email);
 	
 	@Test
-	@DisplayName("연락처 정보중에서 이름 가져오기")
+	@DisplayName("Get Name from Contact Info")
 	public void getName() {
 		info.setName(name);
 		String result = info.getName();
@@ -19,7 +19,7 @@ public class TestContactInfo {
 	}
 	
 	@Test
-	@DisplayName("연락처 정보중에서 이메일 가져오기")
+	@DisplayName("Get Email from Contact Info")
 	public void getEmail() {
 		info.setEmail(email);
 		String result = info.getEmail();
@@ -27,7 +27,7 @@ public class TestContactInfo {
 	}
 	
 	@Test
-	@DisplayName("연락처 정보중에서 핸드폰 번호 가져오기")
+	@DisplayName("Get Phone number from Contact Info")
 	public void getPhone() {
 		info.setEmail(phone);
 		String result = info.getPhone();
@@ -35,9 +35,9 @@ public class TestContactInfo {
 	}
 	
 	@Test
-	@DisplayName("연락처 정보(이름, 연락처, 이메일 전부 가져오기")
+	@DisplayName("Get All data from Contact Info")
 	public void getContactInfo() {
 		String result = info.toString();
-		assertEquals("이름: sarah  | 연락처: 010-1234-5678  | 이메일: sarah@email.com", result);
+		assertEquals("NAME: sarah  | PHONE: 010-1234-5678  | EMAIL: sarah@email.com", result);
 	}
 }

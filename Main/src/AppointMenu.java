@@ -26,7 +26,7 @@ public class AppointMenu {
 		
 		JLabel lTitle = new JLabel("3.Appointment");
 		lTitle.setBorder(new LineBorder(Color.BLUE, 2, true));
-		lTitle.setFont(new Font("±¼¸²", Font.BOLD, 21));
+		lTitle.setFont(new Font("êµ´ë¦¼", Font.BOLD, 21));
 		lTitle.setHorizontalAlignment(SwingConstants.CENTER);
 		lTitle.setBounds(12, 10, 380, 60);
 		frame.getContentPane().add(lTitle);
@@ -37,41 +37,41 @@ public class AppointMenu {
 				frame.dispose();
 			}
 		});
-		btnMainMenu.setFont(new Font("±¼¸²", Font.BOLD, 12));
+		btnMainMenu.setFont(new Font("êµ´ë¦¼", Font.BOLD, 12));
 		btnMainMenu.setBounds(400, 10, 80, 60);
 		frame.getContentPane().add(btnMainMenu);
 		
 		JLabel lIndex = new JLabel("INDEX"); 
 		lIndex.setHorizontalAlignment(SwingConstants.CENTER);
 		lIndex.setBorder(new CompoundBorder(new EtchedBorder(EtchedBorder.RAISED, new Color(255, 200, 0), new Color(255, 255, 0)), null));
-		lIndex.setFont(new Font("±¼¸²", Font.PLAIN, 14));
+		lIndex.setFont(new Font("êµ´ë¦¼", Font.PLAIN, 14));
 		lIndex.setBounds(12, 80, 160, 40);
 		frame.getContentPane().add(lIndex);
 		
 		JLabel lName = new JLabel("NAME"); 
 		lName.setHorizontalAlignment(SwingConstants.CENTER);
-		lName.setFont(new Font("±¼¸²", Font.PLAIN, 14));
+		lName.setFont(new Font("êµ´ë¦¼", Font.PLAIN, 14));
 		lName.setBorder(new CompoundBorder(new EtchedBorder(EtchedBorder.RAISED, new Color(255, 200, 0), new Color(255, 255, 0)), null));
 		lName.setBounds(12, 132, 80, 40);
 		frame.getContentPane().add(lName);
 		
 		JLabel lTime = new JLabel("TIME(HH:MM)");
 		lTime.setHorizontalAlignment(SwingConstants.CENTER);
-		lTime.setFont(new Font("±¼¸²", Font.PLAIN, 14));
+		lTime.setFont(new Font("êµ´ë¦¼", Font.PLAIN, 14));
 		lTime.setBorder(new CompoundBorder(new EtchedBorder(EtchedBorder.RAISED, new Color(255, 200, 0), new Color(255, 255, 0)), null));
 		lTime.setBounds(212, 132, 120, 40);
 		frame.getContentPane().add(lTime);
 		
 		JLabel lPhone = new JLabel("DATE(YYYY-MM-DD)"); 
 		lPhone.setHorizontalAlignment(SwingConstants.CENTER);
-		lPhone.setFont(new Font("±¼¸²", Font.PLAIN, 14));
+		lPhone.setFont(new Font("êµ´ë¦¼", Font.PLAIN, 14));
 		lPhone.setBorder(new CompoundBorder(new EtchedBorder(EtchedBorder.RAISED, new Color(255, 200, 0), new Color(255, 255, 0)), null));
 		lPhone.setBounds(12, 182, 160, 40);
 		frame.getContentPane().add(lPhone);
 		
 		JLabel lLocation = new JLabel("LOCATION");
 		lLocation.setHorizontalAlignment(SwingConstants.CENTER);
-		lLocation.setFont(new Font("±¼¸²", Font.PLAIN, 14));
+		lLocation.setFont(new Font("êµ´ë¦¼", Font.PLAIN, 14));
 		lLocation.setBorder(new CompoundBorder(new EtchedBorder(EtchedBorder.RAISED, new Color(255, 200, 0), new Color(255, 255, 0)), null));
 		lLocation.setBounds(12, 232, 160, 40);
 		frame.getContentPane().add(lLocation);
@@ -104,7 +104,7 @@ public class AppointMenu {
 				reset();
 			}
 		});
-		btnInsert.setFont(new Font("±¼¸²", Font.BOLD, 12));
+		btnInsert.setFont(new Font("êµ´ë¦¼", Font.BOLD, 12));
 		btnInsert.setBounds(20, 282, 90, 40);
 		frame.getContentPane().add(btnInsert);
 	
@@ -115,7 +115,7 @@ public class AppointMenu {
 				reset();
 			}
 		});
-		btnSelect.setFont(new Font("±¼¸²", Font.BOLD, 12));
+		btnSelect.setFont(new Font("êµ´ë¦¼", Font.BOLD, 12));
 		btnSelect.setBounds(114, 282, 90, 40);
 		frame.getContentPane().add(btnSelect);
 		
@@ -126,7 +126,7 @@ public class AppointMenu {
 				reset();
 			}
 		});
-		btnIndexSelect.setFont(new Font("±¼¸²", Font.BOLD, 12));
+		btnIndexSelect.setFont(new Font("êµ´ë¦¼", Font.BOLD, 12));
 		btnIndexSelect.setBounds(206, 282, 90, 40);
 		frame.getContentPane().add(btnIndexSelect);
 		
@@ -137,7 +137,7 @@ public class AppointMenu {
 				reset();
 			}
 		});
-		btnUpdate.setFont(new Font("±¼¸²", Font.BOLD, 12));
+		btnUpdate.setFont(new Font("êµ´ë¦¼", Font.BOLD, 12));
 		btnUpdate.setBounds(298, 282, 90, 40);
 		frame.getContentPane().add(btnUpdate);
 
@@ -149,7 +149,7 @@ public class AppointMenu {
 			}
 		});
 
-		btnDelete.setFont(new Font("±¼¸²", Font.BOLD, 12));
+		btnDelete.setFont(new Font("êµ´ë¦¼", Font.BOLD, 12));
 		btnDelete.setBounds(388, 282, 90, 40);
 		frame.getContentPane().add(btnDelete);
 
@@ -292,9 +292,9 @@ public class AppointMenu {
 		for (int i = 0; i < list.size(); i++) {
 			int result = info.delete(i);
 			if (result > 0) {
-				System.out.println(i + "¹ø ¹ÌÆÃ »èÁ¦ ¼º°ø");
+				System.out.println(i + "ë²ˆ ë¯¸íŒ… ì‚­ì œ ì„±ê³µ");
 			} else {
-				System.out.println(i + "¹ø ¹ÌÆÃ »èÁ¦ ½ÇÆÐ");
+				System.out.println(i + "ë²ˆ ë¯¸íŒ… ì‚­ì œ ì‹¤íŒ¨");
 			}
 		} 
 	}
