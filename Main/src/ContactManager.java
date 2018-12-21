@@ -1,19 +1,19 @@
 import java.io.*;
 import java.util.*;
 
-public class ContactInfoManager implements ContactMenu {
-	private static ContactInfoManager instance = null;
+public class ContactManager implements ContactInterface {
+	private static ContactManager instance = null;
 	private static final String DATA_DIR = "data";
 	private static final String DATA_FILE = "contact.data";
 
-	public ContactInfoManager() {
+	public ContactManager() {
 		initDataDir(DATA_DIR);
 		initDataFile(DATA_DIR, DATA_FILE);
 	}
 
-	public static ContactInfoManager getInstance() {
+	public static ContactManager getInstance() {
 		if (instance == null) {
-			instance = new ContactInfoManager();
+			instance = new ContactManager();
 		}
 		return instance;
 	}

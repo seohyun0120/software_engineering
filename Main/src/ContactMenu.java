@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.border.*;
 
-public class ContactMain {
-	public static ContactMenu info;
+public class ContactMenu {
+	public static ContactInterface info;
 	public JFrame frame;
 	public JTextField textIndex;
 	public JTextField textName;
@@ -13,8 +13,8 @@ public class ContactMain {
 	public JTextField textEmail;
 	public JTextArea textArea;
 	
-	public ContactMain() {
-		info = ContactInfoManager.getInstance();
+	public ContactMenu() {
+		info = ContactManager.getInstance();
 		initialize();
 	}
 	
