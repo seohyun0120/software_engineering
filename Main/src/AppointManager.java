@@ -3,10 +3,10 @@ import java.io.*;
 import java.util.*;
 import java.io.Serializable;
 
-public class AppointManager implements AppointMenu {
+public class AppointManager implements AppointInterface {
 	private static AppointManager instance = null;
 
-	private AppointManager() {
+	public AppointManager() {
 		initDataDir();
 		initDataFile();
 	}
@@ -37,8 +37,10 @@ public class AppointManager implements AppointMenu {
 			} else {
 				System.out.println("폴더 생성 fail");
 			}
+			
 		} else { 
 			System.out.println("Folder Already Exists");
+			
 		}
 	}
 
@@ -67,11 +69,14 @@ public class AppointManager implements AppointMenu {
 			oin = new ObjectInputStream(bin);
 			list = (ArrayList<AppointInfo>) oin.readObject();
 			System.out.println("Print File success");
+			
+	
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			try {
 				oin.close();
+			
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -101,6 +106,19 @@ public class AppointManager implements AppointMenu {
 	
 	@Override
 	public int insert(AppointInfo info) {
+		
+		if(info.getName().trim().length()<=0) {
+			return 0;
+		}
+		if(info.getDate().trim().length()<=0) {
+			return 0;
+		}
+		if(info.getTime().trim().length()<=0) {
+			return 0;
+		}
+		if(info.getLocation().trim().length()<=0) {
+			return 0;
+		}
 		list.add(info);
 		writeDataToFile();
 		return 1;
@@ -116,10 +134,39 @@ public class AppointManager implements AppointMenu {
 			return null;
 		}
 	}
-
+	
+	@Override
+	public ArrayList<AppointInfo> select(String date) {
+		ArrayList<AppointInfo> searchedList=new ArrayList<>();
+		int idx = list.size();
+		boolean flag = false;
+		for(AppointInfo app : list) {
+			if(app.getDate().equals(date)) {
+				searchedList.add(app);
+				flag = true;
+			}
+		}
+		if(flag == true)
+			return searchedList;
+		else
+			return null;
+	}
+	
 	@Override
 	public int update(int index, AppointInfo info) {
 		if (index >= 0 && index < list.size()) {
+			if(info.getName().trim().length()<=0) {
+				return -1;
+			}
+			if(info.getDate().trim().length()<=0) {
+				return -1;
+			}
+			if(info.getTime().trim().length()<=0) {
+				return -1;
+			}
+			if(info.getLocation().trim().length()<=0) {
+				return -1;
+			}
 			list.set(index, info);
 			writeDataToFile();
 			return 1;
