@@ -17,11 +17,11 @@ Software Enginnering 과.제
 
 ## System Architecture
 
-MainMenu.java
+Main.java
 
- 	1. ContactMain.java
- 	2. TodoMain.java
- 	3. AppointmentMain.java
+ 	1. ContactMenu.java
+ 	2. TodoMenu.java
+ 	3. AppointMenu.java
 
 
 
@@ -74,3 +74,7 @@ Github을 사용한다.
 #### List all issues
 
 - Open된 issue, Close issue 캡처(?)
+
+#### Encoding Problem
+
+- 인코딩 문제로 인하여 유저 스토리와 달리 한글을 영어로 작성하였습니다.
