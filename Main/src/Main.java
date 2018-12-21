@@ -26,7 +26,7 @@ public class Main {
 		MainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		MainFrame.getContentPane().setLayout(null);
 		
-		JButton btnContact = new JButton("1.楷遏贸 包府"); 
+		JButton btnContact = new JButton("1.Contacts"); 
 		btnContact.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) {
 				ContactMain window2 = new ContactMain();
@@ -37,7 +37,7 @@ public class Main {
 		btnContact.setBounds(20, 20, 420, 150);
 		MainFrame.getContentPane().add(btnContact);
 		
-		JButton btnTodo = new JButton("2. 且 老 包府"); 
+		JButton btnTodo = new JButton("2. To-Do list"); 
 		btnTodo.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) {
 				//
@@ -48,7 +48,7 @@ public class Main {
 		btnTodo.setBounds(20, 190, 420, 150);
 		MainFrame.getContentPane().add(btnTodo);
 		
-		JButton btnMeeting = new JButton("3. 固泼 包府"); 
+		JButton btnMeeting = new JButton("3. Appointments"); 
 		btnMeeting.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) {
 				//

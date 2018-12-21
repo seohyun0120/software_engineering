@@ -28,14 +28,14 @@ public class AppointManager implements AppointInterface {
 
 	private void initDataDir() {
 		dataDir = new File(DATA_DIR);
-		System.out.println("폴더 경로 : " + dataDir.getPath());
-		System.out.println("절대 경로 : " + dataDir.getAbsolutePath());
+		System.out.println("folder path : " + dataDir.getPath());
+		System.out.println("absolute path : " + dataDir.getAbsolutePath());
 
 		if (!dataDir.exists()) {  
 			if (dataDir.mkdir()) {
-				System.out.println("폴더 생성 success");
+				System.out.println("folder create success");
 			} else {
-				System.out.println("폴더 생성 fail");
+				System.out.println("folder create fail");
 			}
 			
 		} else { 
@@ -47,8 +47,8 @@ public class AppointManager implements AppointInterface {
 	private void initDataFile() {
 		String filePath = DATA_DIR + File.separator + DATA_FILE;
 		dataFile = new File(filePath);
-		System.out.println("파일 경로 : " + dataFile.getPath());
-		System.out.println("절대 경로 : " + dataFile.getAbsolutePath());
+		System.out.println("file path : " + dataFile.getPath());
+		System.out.println("absoulte path : " + dataFile.getAbsolutePath());
 
 		if (!dataFile.exists()) { 
 			System.out.println("New Data File added");
