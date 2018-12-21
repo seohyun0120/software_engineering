@@ -26,11 +26,7 @@ public class TestAppointClass {
 
    public static ArrayList<AppointInfo> list;
 
-   public static final String DATA_DIR = "data";
-   public static final String DATA_FILE = "appoint.data";
-
-   public static File dataDir;
-   public static File dataFile;
+ 
 
 
    @Test
@@ -41,11 +37,11 @@ public class TestAppointClass {
       int afterInsertResult = manager.insert(appoint);
       int afterSize = manager.list.size();
       if(afterInsertResult == 0) {
-    	  //size ±×´ë·Î
+    	  //size doesn't change
     	  assertEquals(size, afterSize);
       }
       else {
-    	  //size +1
+    	  //size+1
     	  assertEquals(size, afterSize-1);
     	  assertSame(manager.list.get(manager.list.size()-1), appoint);
       }
@@ -56,14 +52,19 @@ public class TestAppointClass {
    @Test
    @DisplayName("Appointment Select TEST")
    public void testAppointSelect() {
-	   //int index = Integer.parseInt(textIndex.getText());
+	
 	   list=manager.select(date);
-	   int size = list.size();
-	   for(int i=0; i<size; i++) {
-		   AppointInfo app = list.get(i);
-		   assertEquals(app.getDate(),date);
-	   }
 	   
+	   if(list == null) {
+		   assertSame(null,list);
+	   }
+	   else {
+		   int size = list.size();
+		   for(int i=0; i<size; i++) {
+			   AppointInfo app = list.get(i);
+			   assertEquals(app.getDate(),date);
+		   }
+	   }
    }
    
    
