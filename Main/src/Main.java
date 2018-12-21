@@ -1,8 +1,8 @@
 import java.awt.*;
 import java.awt.event.*;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import javax.swing.*;
-import javax.swing.border.*;
+//import javax.swing.border.*;
 
 public class Main {
 	private JFrame MainFrame;
@@ -26,10 +26,10 @@ public class Main {
 		MainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		MainFrame.getContentPane().setLayout(null);
 		
-		JButton btnContact = new JButton("1.Contacts"); 
+		JButton btnContact = new JButton("1. Contacts"); 
 		btnContact.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) {
-				ContactMenu window2 = new ContactMenu();
+				TodoMenu window2 = new TodoMenu();
 				window2.frame.setVisible(true);
 			}
 		});
@@ -37,23 +37,21 @@ public class Main {
 		btnContact.setBounds(20, 20, 420, 150);
 		MainFrame.getContentPane().add(btnContact);
 		
-		JButton btnTodo = new JButton("2. To-Do list"); 
+		JButton btnTodo = new JButton("2. To-Do List"); 
 		btnTodo.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) {
-				//
-				
+				TodoMenu window3 = new TodoMenu();
+				window3.frame.setVisible(true);
 			}
 		});
 		btnTodo.setFont(new Font("±¼¸²", Font.BOLD, 12));
 		btnTodo.setBounds(20, 190, 420, 150);
 		MainFrame.getContentPane().add(btnTodo);
 		
-		JButton btnMeeting = new JButton("3. Appointments"); 
+		JButton btnMeeting = new JButton("3. Appointment"); 
 		btnMeeting.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) {
 				//
-				AppointMenu AppointWindow = new AppointMenu();
-				AppointWindow.frame.setVisible(true);
 			}
 		});
 		btnMeeting.setFont(new Font("±¼¸²", Font.BOLD, 12));
