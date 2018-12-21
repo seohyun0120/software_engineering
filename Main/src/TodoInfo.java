@@ -1,7 +1,11 @@
 import java.io.Serializable;
 
 public class TodoInfo implements Serializable {
+<<<<<<< HEAD
 	private static final long serialVersionUID = 1L; // Serializable error 諛⑹�
+=======
+	private static final long serialVersionUID = 1L;
+>>>>>>> dev-Huikyung
 	private String date;
 	private String due;
 	private String description;

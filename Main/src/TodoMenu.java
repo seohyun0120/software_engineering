@@ -8,4 +8,8 @@ public interface TodoMenu {
 	public abstract TodoInfo select(int index);
 	public abstract int update(int index, TodoInfo info);
 	public abstract int delete(int index);
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> dev-Huikyung

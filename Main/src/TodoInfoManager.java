@@ -106,12 +106,18 @@ public class TodoInfoManager implements TodoMenu {
 		writeDataToFile();
 		return 1;
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> dev-Huikyung
 	@Override
 	public ArrayList<TodoInfo> select() {
 		return list;
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> dev-Huikyung
 	@Override
 	public TodoInfo select(int index) {
 		if (index >= 0 && index < list.size()) {
@@ -120,7 +126,10 @@ public class TodoInfoManager implements TodoMenu {
 			return null;
 		}
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> dev-Huikyung
 	@Override
 	public int update(int index, TodoInfo info) {
 		if (index >= 0 && index < list.size()) {
@@ -131,7 +140,10 @@ public class TodoInfoManager implements TodoMenu {
 			return 0;
 		}
 	}
+<<<<<<< HEAD
 	
+=======
+>>>>>>> dev-Huikyung
 	@Override
 	public int delete(int index) {
 		if (index >= 0 && index < list.size()) {
