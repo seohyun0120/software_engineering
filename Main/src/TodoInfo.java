@@ -1,12 +1,12 @@
-import java.io.Serializable;
+import java.io.Serializable; 
 
-public class TodoInfo implements Serializable {
-	private static final long serialVersionUID = 1L; // Serializable error 諛⑹�
+public class TodoInfo implements Serializable { 
+	private static final long serialVersionUID = 1L; 
 	private String date;
 	private String due;
 	private String description;
 	
-	public TodoInfo() {}
+	public TodoInfo() {}	
 	public TodoInfo(String date, String due, String description) {
 		this.date = date;
 		this.due = due;

@@ -1,35 +1,32 @@
-//import java.awt.*;
 import java.io.*;
 import java.util.*;
-//import java.io.Serializable;
 
-public class TodoInfoManager implements TodoMenu {
-	private static TodoInfoManager instance = null;
+public class TodoManager implements TodoInterface {
+	private static TodoManager instance = null;
+	private static final String DATA_DIR = "data";
+	private static final String DATA_FILE = "todo.data";
 
-	private TodoInfoManager() {
-		initDataDir();
-		initDataFile();
+	public TodoManager() {
+		initDataDir(DATA_DIR);
+		initDataFile(DATA_DIR, DATA_FILE);
 	}
 
-	public static TodoInfoManager getInstance() {
+	public static TodoManager getInstance() {
 		if (instance == null) {
-			instance = new TodoInfoManager();
+			instance = new TodoManager();
 		}
 		return instance;
 	}
 
 	public ArrayList<TodoInfo> list;
 
-	private static final String DATA_DIR = "data";
-	private static final String DATA_FILE = "contact.data";
-
 	private File dataDir;
 	private File dataFile;
 
-	private void initDataDir() {
-		dataDir = new File(DATA_DIR);
-		System.out.println("폴더 경로 : " + dataDir.getPath());
-		System.out.println("절대 경로 : " + dataDir.getAbsolutePath());
+	public int initDataDir(String dir) {
+		dataDir = new File(dir);
+		System.out.println("Folder path : " + dataDir.getPath());
+		System.out.println("Folder absolute path : " + dataDir.getAbsolutePath());
 
 		if (!dataDir.exists()) {  
 			if (dataDir.mkdir()) {
@@ -37,13 +34,15 @@ public class TodoInfoManager implements TodoMenu {
 			} else {
 				System.out.println("폴더 생성 fail");
 			}
+			return 1;
 		} else { 
 			System.out.println("Folder Already Exists");
+			return 0;
 		}
 	}
 
-	private void initDataFile() {
-		String filePath = DATA_DIR + File.separator + DATA_FILE;
+	public int initDataFile(String dir, String file) {
+		String filePath = dir + File.separator + file;
 		dataFile = new File(filePath);
 		System.out.println("파일 경로 : " + dataFile.getPath());
 		System.out.println("절대 경로 : " + dataFile.getAbsolutePath());
@@ -51,9 +50,11 @@ public class TodoInfoManager implements TodoMenu {
 		if (!dataFile.exists()) { 
 			System.out.println("New Data File added");
 			list = new ArrayList<>();
+			return 1;
 		} else {
 			System.out.println("Already exists");
 			readDataFromFile();
+			return 0;
 		}
 	}
 
@@ -67,7 +68,7 @@ public class TodoInfoManager implements TodoMenu {
 			bin = new BufferedInputStream(in);
 			oin = new ObjectInputStream(bin);
 			list = (ArrayList<TodoInfo>) oin.readObject();
-			System.out.println("Print File success");
+			System.out.println(list);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -85,7 +86,7 @@ public class TodoInfoManager implements TodoMenu {
 		ObjectOutputStream oout = null;
 		
 		try {
-			out = new FileOutputStream("data/contact.data");
+			out = new FileOutputStream("data/todo.data");
 			bout = new BufferedOutputStream(out);
 			oout = new ObjectOutputStream(bout);
 			oout.writeObject(list);
@@ -106,32 +107,33 @@ public class TodoInfoManager implements TodoMenu {
 		writeDataToFile();
 		return 1;
 	}
-
+	
 	@Override
 	public ArrayList<TodoInfo> select() {
 		return list;
 	}
-
+	
 	@Override
 	public TodoInfo select(int index) {
 		if (index >= 0 && index < list.size()) {
 			return list.get(index);
-		} else {
+		} 
+		else {
 			return null;
 		}
 	}
-
+	
 	@Override
 	public int update(int index, TodoInfo info) {
 		if (index >= 0 && index < list.size()) {
 			list.set(index, info);
 			writeDataToFile();
 			return 1;
-		} else {
+		} 
+		else {
 			return 0;
 		}
 	}
-	
 	@Override
 	public int delete(int index) {
 		if (index >= 0 && index < list.size()) {
@@ -142,5 +144,21 @@ public class TodoInfoManager implements TodoMenu {
 		else {
 			return 0;
 		}
+	}
+	@Override
+	public ArrayList<TodoInfo> select(String date) {
+		ArrayList<TodoInfo> searchedList = new ArrayList<>();
+		int idx = list.size();
+		boolean flag = false;
+		for(TodoInfo app : list) {
+			if(app.getDate().equals(date)) {
+				searchedList.add(app);
+				flag = true;
+			}
+		}
+	    if(flag == true)
+	    	return searchedList;
+	    else
+	    	return null;
 	}
 }
