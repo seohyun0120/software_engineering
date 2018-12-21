@@ -24,7 +24,7 @@ public class AppointMenu {
 		frame.setBounds(100, 100, 510, 639);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lTitle = new JLabel("3.미팅 관리");
+		JLabel lTitle = new JLabel("3.Appointment");
 		lTitle.setBorder(new LineBorder(Color.BLUE, 2, true));
 		lTitle.setFont(new Font("굴림", Font.BOLD, 21));
 		lTitle.setHorizontalAlignment(SwingConstants.CENTER);
@@ -41,35 +41,35 @@ public class AppointMenu {
 		btnMainMenu.setBounds(400, 10, 80, 60);
 		frame.getContentPane().add(btnMainMenu);
 		
-		JLabel lIndex = new JLabel("인덱스"); 
+		JLabel lIndex = new JLabel("INDEX"); 
 		lIndex.setHorizontalAlignment(SwingConstants.CENTER);
 		lIndex.setBorder(new CompoundBorder(new EtchedBorder(EtchedBorder.RAISED, new Color(255, 200, 0), new Color(255, 255, 0)), null));
 		lIndex.setFont(new Font("굴림", Font.PLAIN, 14));
 		lIndex.setBounds(12, 80, 160, 40);
 		frame.getContentPane().add(lIndex);
 		
-		JLabel lName = new JLabel("이름"); 
+		JLabel lName = new JLabel("NAME"); 
 		lName.setHorizontalAlignment(SwingConstants.CENTER);
 		lName.setFont(new Font("굴림", Font.PLAIN, 14));
 		lName.setBorder(new CompoundBorder(new EtchedBorder(EtchedBorder.RAISED, new Color(255, 200, 0), new Color(255, 255, 0)), null));
 		lName.setBounds(12, 132, 80, 40);
 		frame.getContentPane().add(lName);
 		
-		JLabel lTime = new JLabel("시간(HH:MM)");
+		JLabel lTime = new JLabel("TIME(HH:MM)");
 		lTime.setHorizontalAlignment(SwingConstants.CENTER);
 		lTime.setFont(new Font("굴림", Font.PLAIN, 14));
 		lTime.setBorder(new CompoundBorder(new EtchedBorder(EtchedBorder.RAISED, new Color(255, 200, 0), new Color(255, 255, 0)), null));
 		lTime.setBounds(212, 132, 120, 40);
 		frame.getContentPane().add(lTime);
 		
-		JLabel lPhone = new JLabel("날짜(YYYY-MM-DD)"); 
+		JLabel lPhone = new JLabel("DATE(YYYY-MM-DD)"); 
 		lPhone.setHorizontalAlignment(SwingConstants.CENTER);
 		lPhone.setFont(new Font("굴림", Font.PLAIN, 14));
 		lPhone.setBorder(new CompoundBorder(new EtchedBorder(EtchedBorder.RAISED, new Color(255, 200, 0), new Color(255, 255, 0)), null));
 		lPhone.setBounds(12, 182, 160, 40);
 		frame.getContentPane().add(lPhone);
 		
-		JLabel lLocation = new JLabel("위치");
+		JLabel lLocation = new JLabel("LOCATION");
 		lLocation.setHorizontalAlignment(SwingConstants.CENTER);
 		lLocation.setFont(new Font("굴림", Font.PLAIN, 14));
 		lLocation.setBorder(new CompoundBorder(new EtchedBorder(EtchedBorder.RAISED, new Color(255, 200, 0), new Color(255, 255, 0)), null));
@@ -97,7 +97,7 @@ public class AppointMenu {
 		textLocation.setBounds(197, 234, 285, 40);
 		frame.getContentPane().add(textLocation);
 		
-		JButton btnInsert = new JButton("등록"); 
+		JButton btnInsert = new JButton("CREATE"); 
 		btnInsert.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) {
 				insert();
@@ -108,7 +108,7 @@ public class AppointMenu {
 		btnInsert.setBounds(20, 282, 90, 40);
 		frame.getContentPane().add(btnInsert);
 	
-		JButton btnSelect = new JButton("보기"); 
+		JButton btnSelect = new JButton("VIEW"); 
 		btnSelect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				selectAll(); 
@@ -119,7 +119,7 @@ public class AppointMenu {
 		btnSelect.setBounds(114, 282, 90, 40);
 		frame.getContentPane().add(btnSelect);
 		
-		JButton btnIndexSelect = new JButton("상세 검색"); 
+		JButton btnIndexSelect = new JButton("DETAIL"); 
 		btnIndexSelect.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				select(); 
@@ -130,7 +130,7 @@ public class AppointMenu {
 		btnIndexSelect.setBounds(206, 282, 90, 40);
 		frame.getContentPane().add(btnIndexSelect);
 		
-		JButton btnUpdate = new JButton("수정"); 
+		JButton btnUpdate = new JButton("UPDATE"); 
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				update(); 
@@ -141,7 +141,7 @@ public class AppointMenu {
 		btnUpdate.setBounds(298, 282, 90, 40);
 		frame.getContentPane().add(btnUpdate);
 
-		JButton btnDelete = new JButton("삭제"); 
+		JButton btnDelete = new JButton("DELETE"); 
 		btnDelete.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) {
 				delete();
@@ -180,10 +180,10 @@ public class AppointMenu {
 		int result = info.insert(appoint); 
 		
 		if (result > 0) {
-			System.out.println("미팅 등록 성공");
+			System.out.println("Appointment create success");
 			textArea.setText(appoint.toString());
 		} else {
-			textArea.setText("미팅 등록 실패");
+			textArea.setText("Appointment create fail. \nPlease fill up all blanks");
 		}
 		
 	}
@@ -198,7 +198,7 @@ public class AppointMenu {
 		textArea.setText(buffer.toString());
 	}
 	
-//******************************TODO 수정********************************************* date검색 가능
+
 	private void select() {
 		try {
 			String searchDate = textDate.getText();
@@ -237,9 +237,9 @@ public class AppointMenu {
 			}
 		
 		} catch (NumberFormatException e) {
-			textArea.setText("인덱스 칸이나 날짜칸에 검색할 정보의 index를 입력하세요.");
+			textArea.setText("Please input the index or date you want to search");
 		} catch (NullPointerException e) {
-			textArea.setText("해당 정보가 없습니다.");
+			textArea.setText("There is no data you want to search");
 		}
 	}
 
@@ -254,14 +254,14 @@ public class AppointMenu {
 			
 			int result = info.update(index, contact);
 			if (result == 1) {
-				textArea.setText(index + "번 미팅 수정에 성공하였습니다");
+				textArea.setText("No. " +index + " appointment is updated.");
 			} else if(result == -1){
-				textArea.setText(index + "번 미팅 수정에 실패하였습니다\n모든 빈칸을 채워주세요.");
+				textArea.setText("You are fail to update No. " +index + " appointment.\nPlease fill up all blank");
 			}else {
-				textArea.setText(index + "번 미팅 수정에 실패하였습니다");
+				textArea.setText("You are fail to update No. " +index + " appointment.");
 			}
 		} catch (NumberFormatException e) {
-			textArea.setText("인덱스 칸에 수정할 정보의 index를 입력하세요.");
+			textArea.setText("Please fill up the index blank that you want to update.");
 		}
 	}
 
@@ -270,12 +270,12 @@ public class AppointMenu {
 			int index = Integer.parseInt(textIndex.getText());
 			int result = info.delete(index);
 			if (result > 0) {
-				textArea.setText(index + "번 미팅 삭제에 성공하였습니다");
+				textArea.setText("No. "+index + " appointment is deleted.");
 			} else {
-				textArea.setText(index + "번 미팅 삭제에 실패하였습니다");
+				textArea.setText("You are fail to delete No. "+index + "appointment");
 			}
 		} catch (NumberFormatException e) {
-			textArea.setText("인덱스 칸에 삭제 정보의 index를 입력하세요.");
+			textArea.setText("Please fill up the index blank that you want to delete.");
 		}
 	}
 	
