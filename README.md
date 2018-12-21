@@ -24,7 +24,9 @@ Software Enginnering 2018학년도 2학기 과제
 
 - 인코딩 문제로 인하여 1차 과제에서 제출한 User Story와  달리 한글 메뉴를 전부 영어로 작성하였습니다.
 
+#### Appointment UserStory
 
+-  유저스토리에서 Appointment 관리 중, 모든 알림 창은 TextArea에 띄워주는 것으로 구현하였습니다.
 
 ### 과제 진행 과정
 
