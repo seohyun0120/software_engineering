@@ -1,7 +1,8 @@
 # Software_Engineering
 Software Enginnering 2018학년도 2학기 과제
 
----
+
+### 과제 3 
 
 ## Compile
 
@@ -35,7 +36,7 @@ Software Enginnering 2018학년도 2학기 과제
 
 --- 
 
-### 과제 진행 과정
+### 과제 2
 
 ## branch
 - master
@@ -107,4 +108,4 @@ Github을 사용한다.
 
 #### List all issues
 
-- Open된 issue, Close issue 캡처(?)
+- Open된 issue, Close issue 캡
