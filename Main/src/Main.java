@@ -29,7 +29,7 @@ public class Main {
 		JButton btnContact = new JButton("1.연락처 관리"); 
 		btnContact.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) {
-				ContactMain window2 = new ContactMain();
+				ContactMenu window2 = new ContactMenu();
 				window2.frame.setVisible(true);
 			}
 		});
