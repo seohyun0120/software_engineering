@@ -1,5 +1,7 @@
-# software_engineering
-Software Enginnering 과.제
+# Software_Engineering
+Software Enginnering 2018학년도 2학기 과제
+
+
 
 ## branch
 - master
@@ -43,8 +45,6 @@ Github을 사용한다.
 - 오른쪽에 New Issue 버튼을 누른다.
 - 해야할 일의 요약을 title에 적고, 자세한 사항은 아래 write칸에 작성한다.
 - Submit new Issue 버튼을 누른다.
-- 
-
 
 
 #### Read/view an issue
@@ -75,6 +75,8 @@ Github을 사용한다.
 
 - Open된 issue, Close issue 캡처(?)
 
+
+
 #### Encoding Problem
 
-- 인코딩 문제로 인하여 유저 스토리와 달리 한글을 영어로 작성하였습니다.
+- 인코딩 문제로 인하여 1차 과제에 제출한 User Story와  달리 한글 메뉴를 전부 영어로 작성하였습니다.
