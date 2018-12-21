@@ -3,6 +3,31 @@ Software Enginnering 2018학년도 2학기 과제
 
 
 
+### Compile
+
+1. master branch의 내용 clone
+2. Main.java 실행
+3. Contact, Todo, Appointment 순서대로 정보 입력, 수정, 보기, 삭제 해보기
+
+
+
+### Test
+
+1. Contact: TestContactInfo.java, TestContactManager.java 실행
+2. Appointment: TestAppointClass.java 실행
+
+
+
+### Things to know
+
+#### Encoding Problem
+
+- 인코딩 문제로 인하여 1차 과제에서 제출한 User Story와  달리 한글 메뉴를 전부 영어로 작성하였습니다.
+
+
+
+### 과제 진행 과정
+
 ## branch
 - master
 - dev 
@@ -74,9 +99,3 @@ Github을 사용한다.
 #### List all issues
 
 - Open된 issue, Close issue 캡처(?)
-
-
-
-#### Encoding Problem
-
-- 인코딩 문제로 인하여 1차 과제에 제출한 User Story와  달리 한글 메뉴를 전부 영어로 작성하였습니다.
