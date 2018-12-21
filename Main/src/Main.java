@@ -29,7 +29,7 @@ public class Main {
 		JButton btnContact = new JButton("1. Contacts"); 
 		btnContact.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) {
-				TodoMenu window2 = new TodoMenu();
+				ContactMenu window2 = new ContactMenu();
 				window2.frame.setVisible(true);
 			}
 		});
@@ -52,6 +52,9 @@ public class Main {
 		btnMeeting.addActionListener(new ActionListener() { 
 			public void actionPerformed(ActionEvent e) {
 				//
+				
+				AppointMenu AppointWindow = new AppointMenu();
+				AppointWindow.frame.setVisible(true);
 			}
 		});
 		btnMeeting.setFont(new Font("±¼¸²", Font.BOLD, 12));
