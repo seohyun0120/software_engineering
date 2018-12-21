@@ -1,7 +1,7 @@
 # Software_Engineering
 Software Enginnering 2018학년도 2학기 과제
 
-
+---
 
 ## Compile
 
@@ -30,8 +30,9 @@ Software Enginnering 2018학년도 2학기 과제
 
 
 
+--- 
 
-## 과제 진행 과정
+### 과제 진행 과정
 
 ## branch
 - master
